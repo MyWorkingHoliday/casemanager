@@ -1,101 +1,106 @@
+Copy
 import streamlit as st
+from fuzzywuzzy import process
 
-# Datos corregidos con nombres en inglés
+# Datos de ocupaciones en inglés
 skilled_occupation_list = {
-    "221111": {
-        "nombre": "Accountant (General)",
-        "visas": ["186", "189", "190", "491"],
-        "edad_maxima": 45,
-        "experiencia_minima": 3
-    },
-    "233512": {
-        "nombre": "Mechanical Engineer",
-        "visas": ["186", "190", "491", "494"],
-        "edad_maxima": 45,
-        "experiencia_minima": 5
-    },
-    "261312": {
-        "nombre": "Developer Programmer",
-        "visas": ["186", "189", "190", "482"],
-        "edad_maxima": 45,
-        "experiencia_minima": 3
-    },
-    "272311": {
-        "nombre": "Clinical Psychologist",
-        "visas": ["186", "189", "190"],
-        "edad_maxima": 45,
-        "experiencia_minima": 5
-    },
-    "351311": {
-        "nombre": "Chef",
-        "visas": ["190", "482", "494"],
-        "edad_maxima": 45,
-        "experiencia_minima": 3
-    }
+    "221111": {"nombre": "Accountant (General)", "visas": ["186", "189", "190"], "edad_maxima": 45, "experiencia_minima": 3},
+    "233512": {"nombre": "Mechanical Engineer", "visas": ["186", "190", "491"], "edad_maxima": 45, "experiencia_minima": 5},
+    "261312": {"nombre": "Developer Programmer", "visas": ["186", "482"], "edad_maxima": 45, "experiencia_minima": 3},
+    "351311": {"nombre": "Chef", "visas": ["190", "482"], "edad_maxima": 45, "experiencia_minima": 2},
+    "253111": {"nombre": "General Practitioner", "visas": ["186", "189"], "edad_maxima": 50, "experiencia_minima": 5}
 }
 
 visas_australianas = {
-   "186": "Employer Nomination Scheme (ENS) visa (Subclass 186)",
-    "187": "Regional Sponsored Migration Scheme (RSMS) visa (Subclass 187)",
-    "189": "Skilled Independent visa (Subclass 189)",
-    "190": "Skilled Nominated visa (Subclass 190)",
-    "407": "Training visa (Subclass 407)",
-    "482": "Skills in Demand visa (Subclass 482)",
-    "485": "Temporary Graduate visa (Subclass 485)",
-    "489": "Skilled Regional (Provisional) visa (Subclass 489)",
-    "491": "Skilled Work Regional (Provisional) visa (Subclass 491)",
-    "494": "Skilled Employer Sponsored Regional (Provisional) visa (Subclass 494)"}
+    "186": "Employer Nomination Scheme (Subclass 186)",
+    "189": "Skilled Independent Visa (Subclass 189)",
+    "190": "Skilled Nominated Visa (Subclass 190)",
+    "482": "Temporary Skill Shortage Visa (Subclass 482)",
+    "491": "Skilled Work Regional Visa (Subclass 491)"
+}
 
-def recomendar_visa(edad, codigo_anzsco, experiencia):
-    if codigo_anzsco not in skilled_occupation_list:
-        return "Código ANZSCO no válido"
+def buscar_profesion(query, limit=5):
+    nombres = [ocupacion["nombre"] for ocupacion in skilled_occupation_list.values()]
+    matches = process.extract(query, nombres, limit=limit)
+    return [match for match in matches if match[1] > 65]  # Filtra coincidencias pobres
+
+def obtener_detalles_por_nombre(nombre):
+    for codigo, detalles in skilled_occupation_list.items():
+        if detalles["nombre"].lower() == nombre.lower():
+            return {"codigo": codigo, **detalles}
+    return None
+
+def recomendar_visa(edad, detalles_ocupacion, experiencia):
+    if edad > detalles_ocupacion["edad_maxima"]:
+        return f"❌ Age exceeds maximum limit of {detalles_ocupacion['edad_maxima']} years"
     
-    ocupacion = skilled_occupation_list[codigo_anzsco]
+    if experiencia < detalles_ocupacion["experiencia_minima"]:
+        return f"❌ Insufficient experience (minimum {detalles_ocupacion['experiencia_minima']} years required)"
+    
     recomendaciones = []
-    
-    if edad > ocupacion["edad_maxima"]:
-        return f"Edad excede el máximo de {ocupacion['edad_maxima']} años"
-    
-    if experiencia < ocupacion["experiencia_minima"]:
-        return f"Experiencia insuficiente (mínimo {ocupacion['experiencia_minima']} años)"
-    
-    for visa in ocupacion["visas"]:
+    for visa in detalles_ocupacion["visas"]:
         recomendaciones.append({
             "visa": visas_australianas[visa],
-            "detalles": "Requisitos adicionales: Examen de inglés y evaluación de habilidades"
+            "requirements": [
+                "English proficiency exam (IELTS 6.0+)",
+                "Skills assessment",
+                "Health insurance"
+            ]
         })
     
     return recomendaciones
 
 def main():
-    st.title("🧭 Asesor de Visas Australiano")
+    st.title("🇦🇺 Australian Visa Matcher")
     
-    with st.expander("ℹ️ Instrucciones"):
-        st.write("1. Ingrese su código ANZSCO de 6 dígitos")
-        st.write("2. Verifique los requisitos específicos para su ocupación")
-        st.write("3. Consulte la lista oficial de códigos ANZSCO para referencia")
+    with st.expander("ℹ️ How to use"):
+        st.write("1. Type your profession (e.g. 'accountant' or 'engineer')")
+        st.write("2. Select your exact occupation from the dropdown")
+        st.write("3. View visa options and requirements")
     
-    edad = st.number_input("Edad", min_value=18, max_value=70, value=30)
-    codigo_anzsco = st.text_input("Código ANZSCO (ej: 221111)", max_chars=6)
-    experiencia = st.number_input("Años de experiencia relevante", min_value=0, value=3)
+    # Paso 1: Búsqueda de profesión
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        query = st.text_input("Search your profession:", placeholder="e.g. Software Developer")
+    with col2:
+        st.write("<div style='height: 28px'></div>", unsafe_allow_html=True)
+        search_btn = st.button("🔍 Search")
     
-    if st.button("🔍 Verificar elegibilidad"):
-        if len(codigo_anzsco) != 6 or not codigo_anzsco.isdigit():
-            st.error("❌ Código ANZSCO inválido: debe ser un número de 6 dígitos")
-            return
-            
-        resultado = recomendar_visa(edad, codigo_anzsco, experiencia)
-        
-        if isinstance(resultado, list):
-            nombre_ocupacion = skilled_occupation_list[codigo_anzsco]["nombre"]
-            st.success(f"🎉 Oportunidades para: {nombre_ocupacion}")
-            for opcion in resultado:
-                st.markdown(f"""
-                **Tipo de Visa:** {opcion['visa']}  
-                **Requisitos:** {opcion['detalles']}
-                """)
+    # Manejar búsqueda
+    if search_btn and query:
+        matches = buscar_profesion(query)
+        if matches:
+            st.session_state["matches"] = [m[0] for m in matches]
         else:
-            st.error(f"⚠️ {resultado}")
+            st.error("No matching professions found. Try different keywords.")
+    
+    # Mostrar resultados de búsqueda
+    if "matches" in st.session_state:
+        selected_ocup = st.selectbox("Select your exact occupation:", st.session_state["matches"])
+        
+        # Paso 2: Input de detalles
+        with st.form("visa_form"):
+            edad = st.slider("Age", 18, 55, 30)
+            experiencia = st.slider("Years of relevant experience", 0, 20, 3)
+            submit = st.form_submit_button("Check Visa Options")
+            
+            if submit and selected_ocup:
+                detalles = obtener_detalles_por_nombre(selected_ocup)
+                if detalles:
+                    resultado = recomendar_visa(edad, detalles, experiencia)
+                    
+                    if isinstance(resultado, list):
+                        st.success(f"## Visa Options for {detalles['nombre']}")
+                        for visa in resultado:
+                            with st.expander(f"**{visa['visa']}**", expanded=True):
+                                st.markdown("**Main Requirements:**")
+                                for req in visa["requirements"]:
+                                    st.markdown(f"- {req}")
+                                st.markdown(f"**ANZSCO Code:** `{detalles['codigo']}`")
+                    else:
+                        st.error(resultado)
+                else:
+                    st.error("Occupation details not found")
 
 if __name__ == "__main__":
     main()
