@@ -59,7 +59,7 @@ skilled_occupation_list = {
     "233214": {"nombre": "Structural Engineer", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "134311": {"nombre": "School Principal", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "241411": {"nombre": "Secondary School Teacher", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3}
-    },
+    }
     # ... (agrega más ocupaciones aquí)
 
 # Diccionario de visas
@@ -77,6 +77,7 @@ visas_australianas = {
 
 def recomendar_visa(edad, profesion, experiencia):
     recomendaciones = []
+profesion = profesion.strip().lower()
     for codigo, detalles in skilled_occupation_list.items():
         if profesion.lower() in detalles["nombre"].lower():
             if edad <= detalles["edad_maxima"] and experiencia >= detalles["experiencia_minima"]:
@@ -91,7 +92,7 @@ def recomendar_visa(edad, profesion, experiencia):
 def main():
     st.title("🗺️ Visa Recomendation")
     edad = st.number_input("Edad", min_value=18, max_value=55, value=30)
-    profesion = st.text_input("Profesión (ej: Gerente de Administración)", "")
+    profesion = st.text_input("Profesión (ej: Management Consultant)", "")
     experiencia = st.number_input("Años de experiencia laboral", min_value=0, value=3)
     
     if st.button("🔍 Buscar recomendaciones"):
