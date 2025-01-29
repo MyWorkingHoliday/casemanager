@@ -1,4 +1,3 @@
-Copy
 import streamlit as st
 from fuzzywuzzy import process
 
