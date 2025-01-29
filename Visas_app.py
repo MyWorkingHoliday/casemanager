@@ -30,7 +30,6 @@ skilled_occupation_list = {
     "253317": {"nombre": "Intensive Care Specialist", "visas": ["186", "189", "190", "491"], "edad_maxima": 50, "experiencia_minima": 5},
     "272511": {"nombre": "Clinical Psychologist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "134299": {"nombre": "Health and Welfare Services Manager nec", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "251512": {"nombre": "Industrial Pharmacist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3}
     "251311": {"nombre": "Environmental Health Officer", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "234311": {"nombre": "Conservator", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "272399": {"nombre": "Psychologist nec", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
