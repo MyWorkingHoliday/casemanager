@@ -1,5 +1,4 @@
 import streamlit as st
-from fuzzywuzzy import process
 
 # Base de datos de ocupaciones calificadas (SOL)
 skilled_occupations = {
