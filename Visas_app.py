@@ -22,7 +22,7 @@ skilled_occupation_list = {
     "272311": {"nombre": "Clinical Psychologist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "261312": {"nombre": "Developer Programmer", "visas": ["186", "189", "190", "491", "482"], "edad_maxima": 45, "experiencia_minima": 3},
     "133111": {"nombre": "Construction Project Manager", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 5},
-    "134211": {"nombre": "Medical Administrator", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3}
+    "134211": {"nombre": "Medical Administrator", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "272499": {"nombre": "Social Worker", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "241111": {"nombre": "Early Childhood (Pre-primary School) Teacher", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "252411": {"nombre": "Occupational Therapist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
@@ -32,7 +32,7 @@ skilled_occupation_list = {
     "253317": {"nombre": "Intensive Care Specialist", "visas": ["186", "189", "190", "491"], "edad_maxima": 50, "experiencia_minima": 5},
     "272511": {"nombre": "Clinical Psychologist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "134299": {"nombre": "Health and Welfare Services Manager nec", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "251512": {"nombre": "Industrial Pharmacist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3}
+    "251512": {"nombre": "Industrial Pharmacist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "251311": {"nombre": "Environmental Health Officer", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "234311": {"nombre": "Conservator", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "272399": {"nombre": "Psychologist nec", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
@@ -53,7 +53,7 @@ skilled_occupation_list = {
     "149913": {"nombre": "Facilities Manager", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "263111": {"nombre": "Computer Network and Systems Engineer", "visas": ["186", "189", "190", "491", "482"], "edad_maxima": 45, "experiencia_minima": 3},
     "232411": {"nombre": "Graphic Designer", "visas": ["190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "342414": {"nombre": "Telecommunications Technician", "visas": ["190", "491", "482"], "edad_maxima": 45, "experiencia_minima": 3}
+    "342414": {"nombre": "Telecommunications Technician", "visas": ["190", "491", "482"], "edad_maxima": 45, "experiencia_minima": 3},
     "251211": {"nombre": "Medical Diagnostic Radiographer", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "251214": {"nombre": "Sonographer", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "253315": {"nombre": "Endocrinologist", "visas": ["186", "189", "190", "491"], "edad_maxima": 50, "experiencia_minima": 5},
@@ -63,7 +63,7 @@ skilled_occupation_list = {
     "234213": {"nombre": "Wine Maker", "visas": ["190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "233214": {"nombre": "Structural Engineer", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "134311": {"nombre": "School Principal", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "241411": {"nombre": "Secondary School Teacher", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3}
+    "241411": {"nombre": "Secondary School Teacher", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
 }
 
 # Diccionario de visas
