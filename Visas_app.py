@@ -49,7 +49,6 @@ skilled_occupation_list = {
     "149913": {"nombre": "Facilities Manager", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "263111": {"nombre": "Computer Network and Systems Engineer", "visas": ["186", "189", "190", "491", "482"], "edad_maxima": 45, "experiencia_minima": 3},
     "232411": {"nombre": "Graphic Designer", "visas": ["190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "342414": {"nombre": "Telecommunications Technician", "visas": ["190", "491", "482"], "edad_maxima": 45, "experiencia_minima": 3}
     "251211": {"nombre": "Medical Diagnostic Radiographer", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "251214": {"nombre": "Sonographer", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "253315": {"nombre": "Endocrinologist", "visas": ["186", "189", "190", "491"], "edad_maxima": 50, "experiencia_minima": 5},
