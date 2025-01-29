@@ -42,7 +42,7 @@ skilled_occupation_list = {
     "241311": {"nombre": "Middle School Teacher", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "232212": {"nombre": "Surveyor", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "139914": {"nombre": "Quality Assurance Manager", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "135199": {"nombre": "ICT Managers nec", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3}
+    "135199": {"nombre": "ICT Managers nec", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "253111": {"nombre": "General Practitioner", "visas": ["186", "189", "190", "407", "489", "482", "187", "494", "491"], "edad_maxima": 50, "experiencia_minima": 5},
     "233213": {"nombre": "Quantity Surveyor", "visas": ["186", "189", "190", "489", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "272311": {"nombre": "Clinical Psychologist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
