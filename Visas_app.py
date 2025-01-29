@@ -94,7 +94,7 @@ def recomendar_visa(edad, profesion, experiencia):
     return recomendaciones if recomendaciones else "No se encontraron visas adecuadas."
 
 def main():
-    st.title("🗺️ Visas Checklist")
+    st.title("🗺️ Visa Check")
     edad = st.number_input("Edad", min_value=18, max_value=100, value=30)
     profesion = st.text_input("Profesión (ej: Gerente de Administración)", "")
     experiencia = st.number_input("Años de experiencia laboral", min_value=0, value=3)
