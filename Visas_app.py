@@ -45,7 +45,6 @@ visas_australianas = {
     "489": "Skilled Regional (Provisional) visa (Subclass 489)",
     "491": "Skilled Work Regional (Provisional) visa (Subclass 491)",
     "494": "Skilled Employer Sponsored Regional (Provisional) visa (Subclass 494)"}
-}
 
 def recomendar_visa(edad, codigo_anzsco, experiencia):
     if codigo_anzsco not in skilled_occupation_list:
