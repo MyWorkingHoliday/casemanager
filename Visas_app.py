@@ -66,7 +66,6 @@ skilled_occupation_list = {
     "241411": {"nombre": "Secondary School Teacher", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3}
     },
     # ... (agrega más ocupaciones aquí)
-}
 
 # Diccionario de visas
 visas_australianas = {
