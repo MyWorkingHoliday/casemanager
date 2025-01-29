@@ -2,7 +2,7 @@ import streamlit as st
 
 # Datos de la Skilled Occupation List (SOL)
 skilled_occupation_list = {
-     "411511": {"nombre": "Aboriginal and Torres Strait Islander Health Worker", "visas": ["494", "187"], "edad_maxima": 45, "experiencia_minima": 2},
+    "411511": {"nombre": "Aboriginal and Torres Strait Islander Health Worker", "visas": ["494", "187"], "edad_maxima": 45, "experiencia_minima": 2},
     "141999": {"nombre": "Accommodation and Hospitality Managers nec", "visas": ["190", "407", "489", "482", "187", "494", "491", "186"], "edad_maxima": 45, "experiencia_minima": 3},
     "221111": {"nombre": "Accountant (General)", "visas": ["186", "189", "190", "407", "485", "489", "482", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 2},
     "211111": {"nombre": "Actor", "visas": ["494", "187"], "edad_maxima": 40, "experiencia_minima": 2},
@@ -78,6 +78,7 @@ visas_australianas = {
 def recomendar_visa(edad, profesion, experiencia):
     recomendaciones = []
 profesion = profesion.strip().lower()
+
     for codigo, detalles in skilled_occupation_list.items():
         if profesion.lower() in detalles["nombre"].lower():
             if edad <= detalles["edad_maxima"] and experiencia >= detalles["experiencia_minima"]:
