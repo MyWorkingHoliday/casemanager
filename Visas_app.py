@@ -11,7 +11,6 @@ skilled_occupation_list = {
     "231111": {"nombre": "Aeroplane Pilot", "visas": ["407", "489", "482", "187", "494", "491", "186"], "edad_maxima": 50, "experiencia_minima": 5},
     "234111": {"nombre": "Agricultural Consultant", "visas": ["186", "189", "190", "407", "485", "489", "482", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "233912": {"nombre": "Agricultural Engineer", "visas": ["186", "189", "190", "407", "485", "489", "482", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "234112": {"nombre": "Agricultural Scientist", "visas": ["186", "189", "190", "407", "485", "489", "482", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 3}
     "312111": {"nombre": "Architectural Draftsperson", "visas": ["190", "491", "494"], "edad_maxima": 45, "experiencia_minima": 2},
     "232111": {"nombre": "Architect", "visas": ["186", "189", "190", "407", "485", "489", "482", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "252711": {"nombre": "Audiologist", "visas": ["186", "189", "190", "407", "489", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 3},
