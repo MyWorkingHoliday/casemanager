@@ -1,70 +1,41 @@
 import streamlit as st
 
-# Datos de la Skilled Occupation List (SOL)
+# Datos corregidos con nombres en inglés
 skilled_occupation_list = {
-    "411511": {"nombre": "Aboriginal and Torres Strait Islander Health Worker", "visas": ["494", "187"], "edad_maxima": 45, "experiencia_minima": 2},
-    "141999": {"nombre": "Accommodation and Hospitality Managers nec", "visas": ["190", "407", "489", "482", "187", "494", "491", "186"], "edad_maxima": 45, "experiencia_minima": 3},
-    "221111": {"nombre": "Accountant (General)", "visas": ["186", "189", "190", "407", "485", "489", "482", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 2},
-    "211111": {"nombre": "Actor", "visas": ["494", "187"], "edad_maxima": 40, "experiencia_minima": 2},
-    "224111": {"nombre": "Actuary", "visas": ["186", "189", "190", "407", "485", "489", "482", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 4},
-    "233911": {"nombre": "Aeronautical Engineer", "visas": ["186", "189", "190", "407", "485", "489", "482", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "231111": {"nombre": "Aeroplane Pilot", "visas": ["407", "489", "482", "187", "494", "491", "186"], "edad_maxima": 50, "experiencia_minima": 5},
-    "234111": {"nombre": "Agricultural Consultant", "visas": ["186", "189", "190", "407", "485", "489", "482", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "233912": {"nombre": "Agricultural Engineer", "visas": ["186", "189", "190", "407", "485", "489", "482", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "312111": {"nombre": "Architectural Draftsperson", "visas": ["190", "491", "494"], "edad_maxima": 45, "experiencia_minima": 2},
-    "232111": {"nombre": "Architect", "visas": ["186", "189", "190", "407", "485", "489", "482", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "252711": {"nombre": "Audiologist", "visas": ["186", "189", "190", "407", "489", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "351311": {"nombre": "Chef", "visas": ["190", "491", "494", "482", "407"], "edad_maxima": 45, "experiencia_minima": 2},
-    "233512": {"nombre": "Mechanical Engineer", "visas": ["186", "189", "190", "407", "485", "489", "482", "187", "494", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "253111": {"nombre": "General Practitioner", "visas": ["186", "189", "190", "407", "489", "482", "187", "494", "491"], "edad_maxima": 50, "experiencia_minima": 5},
-    "233213": {"nombre": "Quantity Surveyor", "visas": ["186", "189", "190", "489", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "272311": {"nombre": "Clinical Psychologist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "261312": {"nombre": "Developer Programmer", "visas": ["186", "189", "190", "491", "482"], "edad_maxima": 45, "experiencia_minima": 3},
-    "133111": {"nombre": "Construction Project Manager", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 5},
-    "272499": {"nombre": "Social Worker", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "241111": {"nombre": "Early Childhood (Pre-primary School) Teacher", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "252411": {"nombre": "Occupational Therapist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "252511": {"nombre": "Physiotherapist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "252611": {"nombre": "Podiatrist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "253912": {"nombre": "Emergency Medicine Specialist", "visas": ["186", "189", "190", "491"], "edad_maxima": 50, "experiencia_minima": 5},
-    "253317": {"nombre": "Intensive Care Specialist", "visas": ["186", "189", "190", "491"], "edad_maxima": 50, "experiencia_minima": 5},
-    "272511": {"nombre": "Clinical Psychologist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "134299": {"nombre": "Health and Welfare Services Manager nec", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "251311": {"nombre": "Environmental Health Officer", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "234311": {"nombre": "Conservator", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "272399": {"nombre": "Psychologist nec", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "252312": {"nombre": "Dentist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "254425": {"nombre": "Registered Nurse (Paediatrics)", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "133512": {"nombre": "Production Manager (Manufacturing)", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "241311": {"nombre": "Middle School Teacher", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "232212": {"nombre": "Surveyor", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "139914": {"nombre": "Quality Assurance Manager", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "253111": {"nombre": "General Practitioner", "visas": ["186", "189", "190", "407", "489", "482", "187", "494", "491"], "edad_maxima": 50, "experiencia_minima": 5},
-    "233213": {"nombre": "Quantity Surveyor", "visas": ["186", "189", "190", "489", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "272311": {"nombre": "Clinical Psychologist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "261312": {"nombre": "Developer Programmer", "visas": ["186", "189", "190", "491", "482"], "edad_maxima": 45, "experiencia_minima": 3},
-    "133111": {"nombre": "Construction Project Manager", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 5},
-    "134211": {"nombre": "Medical Administrator", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "312911": {"nombre": "Maintenance Planner", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "149913": {"nombre": "Facilities Manager", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "263111": {"nombre": "Computer Network and Systems Engineer", "visas": ["186", "189", "190", "491", "482"], "edad_maxima": 45, "experiencia_minima": 3},
-    "232411": {"nombre": "Graphic Designer", "visas": ["190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "251211": {"nombre": "Medical Diagnostic Radiographer", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "251214": {"nombre": "Sonographer", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "253315": {"nombre": "Endocrinologist", "visas": ["186", "189", "190", "491"], "edad_maxima": 50, "experiencia_minima": 5},
-    "254415": {"nombre": "Registered Nurse (Critical Care and Emergency)", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "312512": {"nombre": "Mechanical Engineering Technician", "visas": ["190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "313214": {"nombre": "Telecommunications Technical Officer or Technologist", "visas": ["190", "491", "482"], "edad_maxima": 45, "experiencia_minima": 3},
-    "234213": {"nombre": "Wine Maker", "visas": ["190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "233214": {"nombre": "Structural Engineer", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "134311": {"nombre": "School Principal", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
-    "241411": {"nombre": "Secondary School Teacher", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3}
+    "221111": {
+        "nombre": "Accountant (General)",
+        "visas": ["186", "189", "190", "491"],
+        "edad_maxima": 45,
+        "experiencia_minima": 3
+    },
+    "233512": {
+        "nombre": "Mechanical Engineer",
+        "visas": ["186", "190", "491", "494"],
+        "edad_maxima": 45,
+        "experiencia_minima": 5
+    },
+    "261312": {
+        "nombre": "Developer Programmer",
+        "visas": ["186", "189", "190", "482"],
+        "edad_maxima": 45,
+        "experiencia_minima": 3
+    },
+    "272311": {
+        "nombre": "Clinical Psychologist",
+        "visas": ["186", "189", "190"],
+        "edad_maxima": 45,
+        "experiencia_minima": 5
+    },
+    "351311": {
+        "nombre": "Chef",
+        "visas": ["190", "482", "494"],
+        "edad_maxima": 45,
+        "experiencia_minima": 3
     }
-    # ... (agrega más ocupaciones aquí)
+}
 
-# Diccionario de visas
 visas_australianas = {
-"186": "Employer Nomination Scheme (ENS) visa (Subclass 186)",
+   "186": "Employer Nomination Scheme (ENS) visa (Subclass 186)",
     "187": "Regional Sponsored Migration Scheme (RSMS) visa (Subclass 187)",
     "189": "Skilled Independent visa (Subclass 189)",
     "190": "Skilled Nominated visa (Subclass 190)",
@@ -74,40 +45,58 @@ visas_australianas = {
     "489": "Skilled Regional (Provisional) visa (Subclass 489)",
     "491": "Skilled Work Regional (Provisional) visa (Subclass 491)",
     "494": "Skilled Employer Sponsored Regional (Provisional) visa (Subclass 494)"}
+}
 
-def recomendar_visa(edad, profesion, experiencia):
+def recomendar_visa(edad, codigo_anzsco, experiencia):
+    if codigo_anzsco not in skilled_occupation_list:
+        return "Código ANZSCO no válido"
+    
+    ocupacion = skilled_occupation_list[codigo_anzsco]
     recomendaciones = []
-profesion = profesion.strip().lower()
-
-    for codigo, detalles in skilled_occupation_list.items():
-        if profesion.lower() in detalles["nombre"].lower():
-            if edad <= detalles["edad_maxima"] and experiencia >= detalles["experiencia_minima"]:
-                for visa in detalles["visas"]:
-                    recomendaciones.append({
-                        "visa": visas_australianas[visa],
-                        "ocupacion": detalles["nombre"],
-                        "codigo_anzsco": codigo
-                    })
-    return recomendaciones if recomendaciones else "No se encontraron visas adecuadas."
+    
+    if edad > ocupacion["edad_maxima"]:
+        return f"Edad excede el máximo de {ocupacion['edad_maxima']} años"
+    
+    if experiencia < ocupacion["experiencia_minima"]:
+        return f"Experiencia insuficiente (mínimo {ocupacion['experiencia_minima']} años)"
+    
+    for visa in ocupacion["visas"]:
+        recomendaciones.append({
+            "visa": visas_australianas[visa],
+            "detalles": "Requisitos adicionales: Examen de inglés y evaluación de habilidades"
+        })
+    
+    return recomendaciones
 
 def main():
-    st.title("🗺️ Visa Recomendation")
-    edad = st.number_input("Edad", min_value=18, max_value=55, value=30)
-    profesion = st.text_input("Profesión (ej: Management Consultant)", "")
-    experiencia = st.number_input("Años de experiencia laboral", min_value=0, value=3)
+    st.title("🧭 Asesor de Visas Australiano")
     
-    if st.button("🔍 Buscar recomendaciones"):
-        resultado = recomendar_visa(edad, profesion.strip(), experiencia)
+    with st.expander("ℹ️ Instrucciones"):
+        st.write("1. Ingrese su código ANZSCO de 6 dígitos")
+        st.write("2. Verifique los requisitos específicos para su ocupación")
+        st.write("3. Consulte la lista oficial de códigos ANZSCO para referencia")
+    
+    edad = st.number_input("Edad", min_value=18, max_value=70, value=30)
+    codigo_anzsco = st.text_input("Código ANZSCO (ej: 221111)", max_chars=6)
+    experiencia = st.number_input("Años de experiencia relevante", min_value=0, value=3)
+    
+    if st.button("🔍 Verificar elegibilidad"):
+        if len(codigo_anzsco) != 6 or not codigo_anzsco.isdigit():
+            st.error("❌ Código ANZSCO inválido: debe ser un número de 6 dígitos")
+            return
+            
+        resultado = recomendar_visa(edad, codigo_anzsco, experiencia)
+        
         if isinstance(resultado, list):
-            st.success("🎉 ¡Estas son tus opciones:")
-            for rec in resultado:
+            nombre_ocupacion = skilled_occupation_list[codigo_anzsco]["nombre"]
+            st.success(f"🎉 Oportunidades para: {nombre_ocupacion}")
+            for opcion in resultado:
                 st.markdown(f"""
-                **Ocupación:** {rec['ocupacion']}  
-                **Código ANZSCO:** `{rec['codigo_anzsco']}`  
-                **Visa:** {rec['visa']}
+                **Tipo de Visa:** {opcion['visa']}  
+                **Requisitos:** {opcion['detalles']}
                 """)
         else:
-            st.error("⚠️ " + resultado)
+            st.error(f"⚠️ {resultado}")
 
 if __name__ == "__main__":
     main()
