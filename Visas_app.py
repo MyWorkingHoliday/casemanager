@@ -75,7 +75,7 @@ def check_eligibility(age, experience, occupation_details):
     return eligibility
 
 def main():
-    st.title("🇦🇺 Australian Visa Eligibility Checker")
+    st.title("Visa Eligibility")
     
     with st.expander("ℹ️ Cómo usar"):
         st.write("""
