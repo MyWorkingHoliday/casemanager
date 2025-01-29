@@ -21,7 +21,6 @@ skilled_occupation_list = {
     "272311": {"nombre": "Clinical Psychologist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "261312": {"nombre": "Developer Programmer", "visas": ["186", "189", "190", "491", "482"], "edad_maxima": 45, "experiencia_minima": 3},
     "133111": {"nombre": "Construction Project Manager", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 5},
-    "134211": {"nombre": "Medical Administrator", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3}
     "272499": {"nombre": "Social Worker", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "241111": {"nombre": "Early Childhood (Pre-primary School) Teacher", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
     "252411": {"nombre": "Occupational Therapist", "visas": ["186", "189", "190", "491"], "edad_maxima": 45, "experiencia_minima": 3},
