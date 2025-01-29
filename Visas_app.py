@@ -52,5 +52,4 @@ def main():
             st.error("⚠️ " + resultado)
 
 if __name__ == "__main__":
-    main()def greet(name):
-    print(f"Hello, {name}!")
+    main()
